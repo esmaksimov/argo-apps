@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: traefik
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://helm.traefik.io/traefik
+    chart: traefik
+    targetRevision: 3.4.1
+    helm:
+      values: |
+        entryPoints:
+          websecure:
+            address: ":443/tcp"
+          vpn:
+            address: ":27282/tcp"
+        ports:
+          websecure:
+            hostPort: 443
+          vpn:
+            port: 27282
+            hostPort: 27282
+        securityContext:
+          capabilities:
+            add:
+              - NET_BIND_SERVICE
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: traefik-system
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
