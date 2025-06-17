@@ -21,12 +21,9 @@ spec:
         ports:
           websecure:
             hostPort: 443
-            protocol: TCP
-            entryPoint: websecure
           vpn:
             port: 27282
-            protocol: TCP
-            entryPoint: vpn
+            hostPort: 27282
         securityContext:
           capabilities:
             add:

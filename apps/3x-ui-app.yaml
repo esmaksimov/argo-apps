@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: remnawave
+  name: 3x-ui
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/esmaksimov/3x-ui-k8s
-    path: remnawave
+    path: 3x-ui
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
-    namespace: remnawave-ns
+    namespace: 3x-ui-system
   syncPolicy:
     automated:
       prune: true
