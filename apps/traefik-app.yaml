@@ -17,13 +17,13 @@ spec:
           websecure:
             address: ":443/tcp"
           vpn:
-            address: ":8443/tcp"
+            address: ":2083/tcp"
         ports:
           websecure:
             hostPort: 443
           vpn:
-            port: 8443
-            hostPort: 8443
+            port: 2083
+            hostPort: 2083
         securityContext:
           capabilities:
             add:
