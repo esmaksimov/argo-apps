@@ -27,6 +27,9 @@ spec:
           vlessgh:
             port: 36028
             hostPort: 36028
+          trojangoogle:
+            port: 49245
+            hostPort: 49245
         securityContext:
           capabilities:
             add:
