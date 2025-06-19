@@ -1,16 +1,20 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: letsencrypt-dns
+  name: letsencrypt-dns-route53
 spec:
   acme:
-    server: https://acme-v02.api.letsencrypt.org/directory
     email: maxi.eugene.s@gmail.com
+    server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
-      name: letsencrypt-account-key
+      name: letsencrypt-route53-account-key
     solvers:
     - dns01:
-        cloudflare:
-          apiTokenSecretRef:
-            name: cloudflare-api-token
-            key: api-token
+        route53:
+          region: us-east-1
+          accessKeyIDSecretRef:
+            name: route53-secret
+            key: AWS_ACCESS_KEY_ID
+          secretAccessKeySecretRef:
+            name: route53-secret
+            key: AWS_SECRET_ACCESS_KEY
