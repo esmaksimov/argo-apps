@@ -16,15 +16,15 @@ spec:
         entryPoints:
           websecure:
             address: ":443/tcp"
-          grpc_real:
+          grpcreal:
             address: ":2083/tcp"
         ports:
           websecure:
             hostPort: 443
-          grpc_real:
+          grpcreal:
             port: 2083
             hostPort: 2083
-          vless_gh:
+          vlessgh:
             port: 36028
             hostPort: 36028
         securityContext:
