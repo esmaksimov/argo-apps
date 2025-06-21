@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: draw-project
+  namespace: draw
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/esmaksimov/draw
+    path: draw-project
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: draw
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
