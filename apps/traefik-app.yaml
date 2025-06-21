@@ -18,6 +18,8 @@ spec:
             address: ":443/tcp"
           grpcreal:
             address: ":2083/tcp"
+          oauth:
+            address: ":4180/tcp"
         ports:
           websecure:
             hostPort: 443
@@ -30,6 +32,9 @@ spec:
           trojangoogle:
             port: 49245
             hostPort: 49245
+          oauth:
+            port: 4180
+            hostPort: 4180
         securityContext:
           capabilities:
             add:
